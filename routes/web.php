@@ -103,7 +103,15 @@ Route::get('expire',function (\Illuminate\Http\Request $request){
     }
 });
 
-Route::post('message', function (\Illuminate\Http\Request $request){
+Route::post('submit-enquiry-faith-v1', function (\Illuminate\Http\Request $request){
+    
+    // Simple Honeypot Check
+    if ($request->filled('website_url_check')) {
+        return redirect()->back()->with([
+            'message' => 'Rahmat, arizangiz qabul qilindi!' // Fake success message for bots
+        ]);
+    }
+
 
     \Illuminate\Support\Facades\Http::post('https://api.telegram.org/bot6144318751:AAFIKgtEPZK59Q61Pt0V9eQY-rUf-6wzgyQ/sendMessage', [
         'chat_id'=>531110501,

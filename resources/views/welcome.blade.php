@@ -646,6 +646,11 @@
                     <form id="request" class="main_form" action="{{ route('message') }}" method="post">
                         <div class="row">
                             @csrf
+                            {{-- Honeypot field --}}
+                            <div style="display: none;">
+                                <input type="text" name="website_url_check" tabindex="-1" autocomplete="off">
+                            </div>
+
                             <div class="col-md-12 ">
                                 <input class="contactus" placeholder="Ism" type="type" name="name" required>
                             </div>
