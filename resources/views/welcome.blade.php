@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- basic -->
     <meta charset="utf-8">
@@ -8,10 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Edu Faith</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>{{ __('seo.title') }}</title>
+    <meta name="description" content="{{ __('seo.description') }}">
+    <meta name="keywords" content="{{ __('seo.keywords') }}">
+    <meta name="author" content="Edu Faith Development Team">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ __('seo.title') }}">
+    <meta property="og:description" content="{{ __('seo.description') }}">
+    <meta property="og:image" content="{{ asset('faith/images/logo_3.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ __('seo.title') }}">
+    <meta property="twitter:description" content="{{ __('seo.description') }}">
+    <meta property="twitter:image" content="{{ asset('faith/images/logo_3.png') }}">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+
     <!-- bootstrap css -->
 {{--    <link rel="stylesheet" href="faith/css/bootstrap.min.css">--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <!-- style css -->
